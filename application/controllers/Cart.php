@@ -33,12 +33,33 @@ class Cart extends CI_Controller {
       'qty' => 0
      );
     $this->cart->update($data);
-    return redirect("cart"); 
-
+    return redirect("cart");
   }
 
   function update_cart(){
+    $cart_info = $_POST['cart'] ;
+    foreach( $cart_info as $id => $cart)
+    {
+    $rowid = $cart['rowid'];
+    $price = $cart['price'];
+    $amount = $price * $cart['qty'];
+    $qty = $cart['qty'];
 
+    $data = array(
+    'rowid' => $rowid,
+    'price' => $price,
+    'amount' => $amount,
+    'qty' => $qty
+    );
+
+    // echo '<pre>';
+    // echo print_r($data);
+    // echo '</pre>';
+    // exit();
+
+    $this->cart->update($data);
+    return redirect('cart');
   }
+}
 }
  ?>
