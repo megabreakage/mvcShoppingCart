@@ -39,13 +39,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         $i = 1;
 
         foreach ($cart as $item):
+
+          $id = $item['id'];
+          $rowid = $item['rowid'];
+          $qty = $item['qty'];
+          $price = $item['price'];
+          $name = $item['name'];
           // collect cart data for update
           // format <input type="hidden" name="cart[id][id/rowid/name/qty/name]" value="1" />
-          echo form_hidden('cart[' .$item['id']. '][id]', $item['id']);//for id
-          echo form_hidden('cart[' .$item['id']. '][rowid]', $item['rowid']);//for row_id
-          echo form_hidden('cart[' .$item['id']. '][qty]', $item['qty']);//for $qty
-          echo form_hidden('cart[' .$item['id']. '][price]', $item['price']);//for Price
-          echo form_hidden('cart[' .$item['id']. '][name]', $item['name']);//for name
+          echo form_hidden('cart[' .$item['id']. '][id]', $id);//for id
+          echo form_hidden('cart[' .$item['id']. '][rowid]', $rowid);//for row_id
+          echo form_hidden('cart[' .$item['id']. '][qty]', $qty);//for $qty
+          echo form_hidden('cart[' .$item['id']. '][price]', $price);//for Price
+          echo form_hidden('cart[' .$item['id']. '][name]', $name);//for name
           ?>
           <div class="col-md-2  thumbnail">
             <img src="<?php echo $item['image']; ?>" alt="thumbnail">
@@ -95,8 +101,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
       </div>
     </div>
-    <div class="col-md-12 text-center pt pb">
-      <?php echo form_submit(['name'=>'submit', 'value'=>'Proceed to Checkout', 'class'=>'btn btn-primary']) ?>
+    <div class="col-md-12 text-right pt">
+      <?php echo form_submit(['name'=>'submit', 'value'=>'Update Cart', 'class'=>'btn btn-primary']) ?>
     </div>
   <?php echo form_close(); ?>
+  <hr>
+  <div class="col-md-12 text-center pt pb">
+    <?php echo anchor('billing', 'Proceed to Checkout', ['class'=>'btn btn-primary']) ?>
+  </div>
 </div>
