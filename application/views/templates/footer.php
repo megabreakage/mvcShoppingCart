@@ -1,6 +1,6 @@
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <div class="col-md-8 col-md-offset-2 text-center pt bounceIn">
+        <div class="col-md-8 col-md-offset-2 text-center pt animated bounceInUp">
           <h5>Copyrights &copy; 2018 <strong>BreakageInc</strong>.</h5>
         </div>
       </div>
